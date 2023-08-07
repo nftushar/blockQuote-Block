@@ -1,0 +1,101 @@
+{
+  "apiVersion": "1",
+  "name": "b-blocks/blockquote",
+  "title": "blockquote",
+  "description": "Blockquote Gutenberg editing with easy-to-use, responsive blockquote embedding for videos, maps, and more.",
+  "category": "media",
+  "keywords": ["blockquote", "block-quote", "Gutenberg"],
+  "textdomain": "blockquote",
+
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "cId": {
+      "type": "string",
+      "default": ""
+    },
+    "skin": {
+      "type": "string",
+      "default": ""
+    },
+    "alignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "desc": {
+      "type": "string",
+      "default": ""
+    },
+    "title":{
+      "type": "string",
+      "default": ""
+    },
+    "titleTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": "16px"
+      }
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "#7a7a7a"
+    },
+    "titleShadow": {
+      "type": "array",
+      "default": []
+    },
+    "btnShow": {
+      "type": "boolean",
+      "default": true
+    },
+    "btnView": {
+      "type": "string",
+      "default": ""
+    },
+    "iconStyle": {
+      "type": "string",
+      "default": "solid"
+    }, 
+    "btnSkin":{
+      "type": "string",
+      "default": ""
+    },
+    "btnLabel":{
+      "type": "string",
+      "default":""
+    },
+    "btnUsername":{
+      "type":"string",
+      "default": ""
+    },
+    "btnTarget":{
+      "type":"string",
+      "default":""
+    },
+    "btnUrl":{
+      "type":"string",
+      "default":""
+    },
+    "gap": {
+      "type": "string",
+      "default": "10px"
+    }
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "html": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true,
+      "columns": {
+        "desktop": 1,
+        "tablet": 1,
+        "mobile": 1
+      }
+    }
+  },
+  "editorScript": "file:../dist/editor.js"
+}
