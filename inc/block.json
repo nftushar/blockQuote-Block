@@ -28,7 +28,7 @@
       "type": "string",
       "default": ""
     },
-    "title":{
+    "title": {
       "type": "string",
       "default": ""
     },
@@ -57,26 +57,26 @@
     "iconStyle": {
       "type": "string",
       "default": "solid"
-    }, 
-    "btnSkin":{
+    },
+    "btnSkin": {
       "type": "string",
       "default": ""
     },
-    "btnLabel":{
+    "btnLabel": {
       "type": "string",
-      "default":""
-    },
-    "btnUsername":{
-      "type":"string",
       "default": ""
     },
-    "btnTarget":{
-      "type":"string",
-      "default":""
+    "btnUsername": {
+      "type": "string",
+      "default": ""
     },
-    "btnUrl":{
-      "type":"string",
-      "default":""
+    "btnTarget": {
+      "type": "string",
+      "default": ""
+    },
+    "btnUrl": {
+      "type": "string",
+      "default": ""
     },
     "gap": {
       "type": "string",

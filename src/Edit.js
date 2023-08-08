@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 
 import Settings from "./Settings";
-import blockquote from "./blockquote";
+import Blockquote from "./Blockquote";
 import Style from "./Style";
 
 
 const Edit = (props) => {
   const { className, attributes, setAttributes, clientId, isSelected } = props;
-  const{src} = attributes;
+  const{skin, alignment } = attributes;
 
   useEffect(() => {
     clientId && setAttributes({ cId: clientId });
@@ -18,11 +18,9 @@ const Edit = (props) => {
 
     <div className={className} id={`bBlocksblockquote-${clientId}`}>
       {!isSelected && <div className="mouse"></div>}
-
+<h1>Hello</h1>
       <Style attributes={attributes} clientId={clientId} />
-      {src ? <Blockquote attributes={attributes} clientId={clientId} /> : <div className="notice">
-        Please insert a source to show blockquote.
-        </div>}
+     
     </div>
   </>
 };

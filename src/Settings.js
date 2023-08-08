@@ -2,14 +2,21 @@ import { __ } from "@wordpress/i18n";
 import { InspectorControls } from "@wordpress/block-editor";
 import produce from "immer";
 import {
-	PanelBody, TabPanel, TextControl, ToggleControl, SelectControl, __experimentalUnitControl as UnitControl,
+	PanelBody, TabPanel, TextControl, TextareaControl, ToggleControl, SelectControl, __experimentalUnitControl as UnitControl,
 } from "@wordpress/components";
-import { BorderControl, MultiShadowControl } from "../../Components"
+import { BorderControl, MultiShadowControl, BtnGroup, BColor, Typography } from "../../Components";
+
+const alignments = [
+	{ label: __('left', 'rating'), value: 'left', icon: 'editor-alignleft' },
+	{ label: __('center', 'rating'), value: 'center', icon: 'editor-aligncenter' },
+	{ label: __('right', 'rating'), value: 'right', icon: 'editor-alignright' }
+];
 
 
 const Settings = ({ attributes, setAttributes }) => {
-	const { src, title, height, width, loading, border, shadow, isFullScreen } = attributes;
+	const { cId,  alignment, btnLabel, btnShow, btnSkin, btnTarget, btnUrl, btnUsername, btnView,desc, gap, iconStyle, skin, title, titleColor, titleShadow, titleTypo } = attributes;
 
+	// console.log(attributes);
 	return (
 		<>
 			<InspectorControls>
@@ -25,50 +32,33 @@ const Settings = ({ attributes, setAttributes }) => {
 							{tab.name === "general" && (
 								<PanelBody
 									className="bPlPanelBody"
-									title={__("Manage Blockquote", "blockquote")}
-								>
-									<TextControl
-										label={__("Source", "blockquote")}
-										value={src}
-										onChange={(val) => setAttributes({ src: val })}
-									/>
-									<TextControl
-										label={__("title", "blockquote")}
-										value={title}
-										onChange={(val) => setAttributes({ title: val })}
-									/>
+									title={__("Manage Blockquote", "blockquote")} >
+
+									<ToggleControl className="mt20" label={__("Show / Hide button", "blockquote")} checked={btnView} onChange={(val) => setAttributes({ btnView: val })} />
+
+									<BtnGroup className="mt20" label={__("Alignment", "blockquote")} value={alignment} onChange={val => setAttributes({ alignment: val })} options={alignments} isIcon={true} />
+
+									<Typography label={__('Text Typography', 'blockquote')} value={titleTypo} onChange={val => setAttributes({ titleTypo: val })} defaults={{ fontSize: 16 }} produce={produce} />
+
+									<TextControl label={__("Title", "blockquote")} value={title} onChange={(val) => setAttributes({ title: val })} />
+
+									<TextControl label={__("Button Label", "blockquote")} value={btnLabel} onChange={(val) => setAttributes({ btnLabel: val })} />
+
+									<TextControl label={__("Button Url", "blockquote")} value={btnUrl} onChange={(val) => setAttributes({ btnUrl: val })} />
+
+
+
+									<TextControl label={__("title", "blockquote")} value={btnUrl} onChange={(val) => setAttributes({ btnUrl: val })} />
 
 									{/* ... other controls ... */}
-									<SelectControl
-										label="Loading Behavior"
-										value={loading}
-										options={[
-											{ label: 'Auto', value: 'auto' },
-											{ label: 'Lazy', value: 'lazy' },
-											{ label: 'Eager', value: 'eager' },
-										]}
-										onChange={(val) => setAttributes({ loading: val })}
-									/>
-									<UnitControl
-										className="mt20"
-										label={__("Height", "blockquote")}
-										labelPosition="left"
-										value={height}
-										onChange={(val) => setAttributes({ height: val })}
-									/>
-									<UnitControl
-										className="mt20"
-										label={__("Width", "blockquote")}
-										labelPosition="left"
-										value={width}
-										onChange={(val) => setAttributes({ width: val })}
-									/>
-									<ToggleControl
-										className="mt20"
-										label={__("Show / Hide Full Screen button", "blockquote")}
-										checked={isFullScreen}
-										onChange={(val) => setAttributes({ isFullScreen: val })}
-									/>
+									<BColor label={__('Text Color', 'star-rating')} value={titleColor} onChange={val => setAttributes({ titleColor: val })} defaultColor='#0000' />
+
+									<SelectControl label="Button Skin" value={btnSkin} options={[{ label: 'Auto', value: 'auto' }, { label: 'Lazy', value: 'lazy' }, { label: 'Eager', value: 'eager' },]} onChange={(val) => setAttributes({ btnSkin: val })} />
+
+									<SelectControl label="Button Skin" value={skin} options={[{ label: 'Auto', value: 'auto' }, { label: 'Lazy', value: 'lazy' }, { label: 'Eager', value: 'eager' },]} onChange={(val) => setAttributes({ skin: val })} />
+
+									<TextareaControl label="Description" help="Enter some text" value={desc} onChange={(val) => setAttributes({ desc: val })} />
+
 								</PanelBody>
 							)}
 
@@ -77,17 +67,14 @@ const Settings = ({ attributes, setAttributes }) => {
 									className="bPlPanelBody"
 									title={__("Manage Blockquote", "blockquote")}
 								>
-									<BorderControl
-										label={__('Border:', 'blockquote')}
-										value={border}
-										onChange={val => setAttributes({ border: val })}
-										defaults={{ radius: '5px' }}
+									{/* <BorderControl label={__('Border:', 'blockquote')} value={border} onChange={val => setAttributes({ border: val })} defaults={{ radius: '5px' }} /> */}
+									<UnitControl label={__("Gap", "star-rating")} labelPosition="left" value={gap} onChange={(val) => setAttributes({ gap: val })} // units={[pxUnit(10), emUnit(1)]} isResetValueOnUnitChange={true}
 									/>
-									<MultiShadowControl
-										className="mt20"
-										value={shadow}
-										onChange={(val) => setAttributes({ shadow: val })}
-										produce={produce}
+									{/* <BtnGroup className="mt20" label={__("Alignment", "star-rating")} value={alignment} onChange={val => setAttributes({ alignment: val })} options={iconAlignments} isIcon={true} /> */}
+
+									<MultiShadowControl className="mt20" value={btnShow} onChange={(val) => setAttributes({ shadow: val })} produce={produce}
+									/>
+									<MultiShadowControl className="mt20" value={titleShadow} onChange={(val) => setAttributes({ shadow: val })} produce={produce}
 									/>
 								</PanelBody>
 							)}

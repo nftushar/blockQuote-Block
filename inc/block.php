@@ -26,7 +26,7 @@ class BDBBlockDirectory{
 		$blockClassName = "wp-block-b-blocks-blockquote $className align$align";
 
 		ob_start(); ?>
-		<div class='<?php echo esc_attr( $blockClassName ); ?>' id='bBlocksblockquote-<?php echo esc_attr( $cId ) ?>' data-attributes='<?php echo esc_attr( wp_json_encode( $attributes ) ); ?>'></div>
+		<div class='<?php echo esc_attr( $blockClassName ); ?>' id='bBlocksRating-<?php echo esc_attr( $cId ) ?>' data-attributes='<?php echo esc_attr( wp_json_encode( $attributes ) ); ?>'></div>
 
 		<?php return ob_get_clean();
 	} // Render
