@@ -40,7 +40,7 @@ const Settings = ({ attributes, setAttributes }) => {
 
 									<Typography label={__('Text Typography', 'blockquote')} value={titleTypo} onChange={val => setAttributes({ titleTypo: val })} defaults={{ fontSize: 16 }} produce={produce} />
 
-									<TextControl label={__("Title", "blockquote")} value={title} onChange={(val) => setAttributes({ title: val })} />
+									<TextControl autoComplete="off" label={__("Title", "blockquote")} value={title} onChange={(val) => setAttributes({ title: val })} />
 
 									<TextControl label={__("Button Label", "blockquote")} value={btnLabel} onChange={(val) => setAttributes({ btnLabel: val })} />
 
@@ -55,7 +55,7 @@ const Settings = ({ attributes, setAttributes }) => {
 
 									<SelectControl label="Button Skin" value={btnSkin} options={[{ label: 'Auto', value: 'auto' }, { label: 'Lazy', value: 'lazy' }, { label: 'Eager', value: 'eager' },]} onChange={(val) => setAttributes({ btnSkin: val })} />
 
-									<SelectControl label="Button Skin" value={skin} options={[{ label: 'Auto', value: 'auto' }, { label: 'Lazy', value: 'lazy' }, { label: 'Eager', value: 'eager' },]} onChange={(val) => setAttributes({ skin: val })} />
+									<SelectControl label="BlockQuotes Skin" value={skin} options={[{ label: 'Auto', value: 'auto' }, { label: 'Lazy', value: 'lazy' }, { label: 'Eager', value: 'eager' },]} onChange={(val) => setAttributes({ skin: val })} />
 
 									<TextareaControl label="Description" help="Enter some text" value={desc} onChange={(val) => setAttributes({ desc: val })} />
 
