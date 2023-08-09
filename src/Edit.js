@@ -17,7 +17,6 @@ const Edit = (props) => {
       <Settings attributes={attributes} setAttributes={setAttributes} />
 
       <div className={className} id={`bBlocksBlockquote-${clientId}`}>
-
         <div className="bBlocksBlockquote default">
           <span className="quoteOpen">❝</span>
           <blockquote>
