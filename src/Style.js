@@ -1,14 +1,24 @@
 import { getBorderCSS, getMultiShadowCSS } from "../../Components/utils/getCSS";
 
 const Style = ({ attributes, clientId }) => {
-    const { width, height, border, descShadow } = attributes;
+    const { border, descShadow, descColor, authorShadow, authorColor } = attributes;
 
+    const quoteSl = ` #bBlocksBlockquote-${clientId} .bBlocksBlockquote`;
+  
     return <style dangerouslySetInnerHTML={{
         __html: `
-        #bBlocksBlockquote-${clientId} .bBlocksBlockquote blockquote{
-            
-            
-            text-shadow: ${getMultiShadowCSS(descShadow,  'text')}
+        ${quoteSl}{
+            ${getBorderCSS(border)}; 
+        }
+        ${quoteSl} blockquote{
+            text-shadow: ${getMultiShadowCSS(descShadow, 'text')};
+            color:${authorColor}
+        }
+        ${quoteSl} cite{
+            text-shadow: ${getMultiShadowCSS(authorShadow, 'text')};
+            color: ${descColor}
+             
+
         }
     `}}
     />

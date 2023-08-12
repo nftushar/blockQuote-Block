@@ -14,7 +14,7 @@ const alignments = [
 
 
 const Settings = ({ attributes, setAttributes }) => {
-	const { cId, alignment, btnLabel, btnShow, btnSkin, btnTarget, btnUrl, btnUsername, content, btnView, gap, iconStyle, skin, authorShadow, title, authorColor, descShadow, titleTypo } = attributes;
+	const { cId, alignment, btnLabel, btnShow, btnSkin, btnTarget, btnUrl, btnUsername, content, btnView, gap, iconStyle, skin, authorColor, descShadow, descColor, title, titleTypo, border } = attributes;
 
 	// console.log(attributes);
 	return (
@@ -51,6 +51,8 @@ const Settings = ({ attributes, setAttributes }) => {
 									{/* ... other controls ... */}
 									<BColor label={__('Author Color', 'star-rating')} value={authorColor} onChange={val => setAttributes({ authorColor: val })} defaultColor='#0000' />
 
+									<BColor label={__('Description Color', 'star-rating')} value={descColor} onChange={val => setAttributes({ descColor: val })} defaultColor='#0000' />
+
 									{/* <SelectControl label="Button Skin" value={btnSkin} options={[{ label: 'Auto', value: 'auto' }, { label: 'Lazy', value: 'lazy' }, { label: 'Eager', value: 'eager' },]} onChange={(val) => setAttributes({ btnSkin: val })} />
 
 									<SelectControl label="BlockQuotes Skin" value={skin} options={[{ label: 'Auto', value: 'auto' }, { label: 'Lazy', value: 'lazy' }, { label: 'Eager', value: 'eager' },]} onChange={(val) => setAttributes({ skin: val })} /> */}
@@ -65,13 +67,12 @@ const Settings = ({ attributes, setAttributes }) => {
 									className="bPlPanelBody"
 									title={__("Manage Blockquote", "blockquote")}
 								>
-									{/* <BorderControl label={__('Border:', 'blockquote')} value={border} onChange={val => setAttributes({ border: val })} defaults={{ radius: '5px' }} /> */}
+									<BorderControl label={__('Border:', 'blockquote')} value={border} onChange={val => setAttributes({ border: val })} defaults={{ radius: '5px' }} />
+
 									<UnitControl label={__("Gap", "star-rating")} labelPosition="left" value={gap} onChange={(val) => setAttributes({ gap: val })} // units={[pxUnit(10), emUnit(1)]} isResetValueOnUnitChange={true}
 									/>
 									{/* <BtnGroup className="mt20" label={__("Alignment", "star-rating")} value={alignment} onChange={val => setAttributes({ alignment: val })} options={iconAlignments} isIcon={true} /> */}
 
-									<MultiShadowControl className="mt20" value={authorShadow} onChange={(val) => setAttributes({ authorShadow: val })} produce={produce}
-									/>
 									<MultiShadowControl className="mt20" value={descShadow} onChange={(val) => setAttributes({ descShadow: val })} type="text" produce={produce}
 									/>
 								</PanelBody>
