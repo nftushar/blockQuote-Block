@@ -24,7 +24,7 @@
       "type": "string",
       "default": "center"
     },
-    "desc": {
+    "content": {
       "type": "string",
       "default": ""
     },
@@ -38,11 +38,15 @@
         "fontSize": "16px"
       }
     },
-    "titleColor": {
+    "authorColor": {
       "type": "string",
       "default": "#7a7a7a"
     },
-    "titleShadow": {
+    "authorShadow": {
+      "type": "array",
+      "default": []
+    },
+    "descShadow": {
       "type": "array",
       "default": []
     },

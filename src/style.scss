@@ -25,20 +25,5 @@ html {
 		position: relative;
 		overflow: hidden;
 	}
-	&:fullscreen .bBlocksBlockquote {
-		height: 100% !important;
-	}
-
-	.fullScreenBtn {
-		position: absolute;
-		bottom: 16px;
-		right: 5px;
-		transform: translateX(-50%);
-		padding: 6px 6px 4px 6px;
-		background-color: #d1d4d6;
-		color: #fff;
-		border: none;
-		border-radius: 5px;
-		cursor: pointer;
-	}
+	
 }

@@ -1,12 +1,13 @@
 import { useEffect } from "react";
-
+import { RichText } from '@wordpress/block-editor';
 import Settings from "./Settings";
 import Blockquote from "./Blockquote";
 import Style from "./Style";
+import { __ } from "@wordpress/i18n";
 
 const Edit = (props) => {
-  const { className, attributes, setAttributes, clientId, isSelected } = props;
-  const { skin, alignment } = attributes;
+  const { className, attributes, setAttributes, clientId } = props;
+  const { skin, alignment, title, content } = attributes;
 
   useEffect(() => {
     clientId && setAttributes({ cId: clientId });
@@ -15,15 +16,18 @@ const Edit = (props) => {
   return (
     <>
       <Settings attributes={attributes} setAttributes={setAttributes} />
+     
 
       <div className={className} id={`bBlocksBlockquote-${clientId}`}>
         <div className="bBlocksBlockquote default">
           <span className="quoteOpen">❝</span>
-          <blockquote>
-            The deeds you do may be the only sermon some persons will hear
-            today.
-          </blockquote>
-          <cite>Francis of Assisi</cite>
+          <RichText
+            tagName="blockquote"
+            value={content}
+            allowedFormats={['core/bold', 'core/italic']}
+            onChange={(val) => setAttributes({ content: val })}
+            placeholder={__('Add Your Text...')} />
+          <cite>{title}</cite>
           <span className="quoteClose">❞</span>
         </div>
 

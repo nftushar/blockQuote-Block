@@ -14,7 +14,7 @@ const alignments = [
 
 
 const Settings = ({ attributes, setAttributes }) => {
-	const { cId,  alignment, btnLabel, btnShow, btnSkin, btnTarget, btnUrl, btnUsername, btnView,desc, gap, iconStyle, skin, title, titleColor, titleShadow, titleTypo } = attributes;
+	const { cId, alignment, btnLabel, btnShow, btnSkin, btnTarget, btnUrl, btnUsername, content, btnView, gap, iconStyle, skin, authorShadow, title, authorColor, descShadow, titleTypo } = attributes;
 
 	// console.log(attributes);
 	return (
@@ -34,7 +34,7 @@ const Settings = ({ attributes, setAttributes }) => {
 									className="bPlPanelBody"
 									title={__("Manage Blockquote", "blockquote")} >
 
-									<ToggleControl className="mt20" label={__("Show / Hide button", "blockquote")} checked={btnView} onChange={(val) => setAttributes({ btnView: val })} />
+									{/* <ToggleControl className="mt20" label={__("Show / Hide button", "blockquote")} checked={btnView} onChange={(val) => setAttributes({ btnView: val })} /> */}
 
 									<BtnGroup className="mt20" label={__("Alignment", "blockquote")} value={alignment} onChange={val => setAttributes({ alignment: val })} options={alignments} isIcon={true} />
 
@@ -42,22 +42,20 @@ const Settings = ({ attributes, setAttributes }) => {
 
 									<TextControl autoComplete="off" label={__("Title", "blockquote")} value={title} onChange={(val) => setAttributes({ title: val })} />
 
-									<TextControl label={__("Button Label", "blockquote")} value={btnLabel} onChange={(val) => setAttributes({ btnLabel: val })} />
+									{/* <TextControl label={__("Label", "blockquote")} value={btnLabel} onChange={(val) => setAttributes({ btnLabel: val })} /> */}
 
-									<TextControl label={__("Button Url", "blockquote")} value={btnUrl} onChange={(val) => setAttributes({ btnUrl: val })} />
-
-
-
-									<TextControl label={__("title", "blockquote")} value={btnUrl} onChange={(val) => setAttributes({ btnUrl: val })} />
+									{/* <TextControl label={__("Button Url", "blockquote")} value={btnUrl} onChange={(val) => setAttributes({ btnUrl: val })} /> */}
+									{/* 
+									<TextControl label={__("title", "blockquote")} value={btnUrl} onChange={(val) => setAttributes({ btnUrl: val })} /> */}
 
 									{/* ... other controls ... */}
-									<BColor label={__('Text Color', 'star-rating')} value={titleColor} onChange={val => setAttributes({ titleColor: val })} defaultColor='#0000' />
+									<BColor label={__('Author Color', 'star-rating')} value={authorColor} onChange={val => setAttributes({ authorColor: val })} defaultColor='#0000' />
 
-									<SelectControl label="Button Skin" value={btnSkin} options={[{ label: 'Auto', value: 'auto' }, { label: 'Lazy', value: 'lazy' }, { label: 'Eager', value: 'eager' },]} onChange={(val) => setAttributes({ btnSkin: val })} />
+									{/* <SelectControl label="Button Skin" value={btnSkin} options={[{ label: 'Auto', value: 'auto' }, { label: 'Lazy', value: 'lazy' }, { label: 'Eager', value: 'eager' },]} onChange={(val) => setAttributes({ btnSkin: val })} />
 
-									<SelectControl label="BlockQuotes Skin" value={skin} options={[{ label: 'Auto', value: 'auto' }, { label: 'Lazy', value: 'lazy' }, { label: 'Eager', value: 'eager' },]} onChange={(val) => setAttributes({ skin: val })} />
+									<SelectControl label="BlockQuotes Skin" value={skin} options={[{ label: 'Auto', value: 'auto' }, { label: 'Lazy', value: 'lazy' }, { label: 'Eager', value: 'eager' },]} onChange={(val) => setAttributes({ skin: val })} /> */}
 
-									<TextareaControl label="Description" help="Enter some text" value={desc} onChange={(val) => setAttributes({ desc: val })} />
+									<TextareaControl label="Description" value={content} onChange={(val) => setAttributes({ content: val })} />
 
 								</PanelBody>
 							)}
@@ -72,9 +70,9 @@ const Settings = ({ attributes, setAttributes }) => {
 									/>
 									{/* <BtnGroup className="mt20" label={__("Alignment", "star-rating")} value={alignment} onChange={val => setAttributes({ alignment: val })} options={iconAlignments} isIcon={true} /> */}
 
-									<MultiShadowControl className="mt20" value={btnShow} onChange={(val) => setAttributes({ shadow: val })} produce={produce}
+									<MultiShadowControl className="mt20" value={authorShadow} onChange={(val) => setAttributes({ authorShadow: val })} produce={produce}
 									/>
-									<MultiShadowControl className="mt20" value={titleShadow} onChange={(val) => setAttributes({ shadow: val })} produce={produce}
+									<MultiShadowControl className="mt20" value={descShadow} onChange={(val) => setAttributes({ descShadow: val })} type="text" produce={produce}
 									/>
 								</PanelBody>
 							)}
