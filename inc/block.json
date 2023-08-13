@@ -6,7 +6,6 @@
   "category": "media",
   "keywords": ["blockquote", "block-quote", "Gutenberg"],
   "textdomain": "blockquote",
-
   "attributes": {
     "align": {
       "type": "string",
@@ -24,15 +23,25 @@
       "type": "string",
       "default": "center"
     },
-    "content": {
-      "type": "string",
-      "default": ""
+    "bgColor": {
+      "type": "object",  
+      "default": {
+        "color": "#ffcc00"  
+      }
     },
-    "title": {
+    "quoteColor": {
       "type": "string",
-      "default": ""
+      "default": "#7a7a7a"
     },
-    "titleTypo": {
+    "quoteSize": {
+      "type": "string",
+      "default": "100px"
+    },
+    "author": {
+      "type": "string",
+      "default": "NF Tushar"
+    },
+    "authorTypo": {
       "type": "object",
       "default": {
         "fontSize": "16px"
@@ -41,7 +50,17 @@
     "authorColor": {
       "type": "string",
       "default": "#7a7a7a"
-    }, 
+    },
+    "desc": {
+      "type": "string",
+      "default": "Ultimate FAQ and accordion plugin create Woocommerce faq lists with comment & FAQ schema support, responsive, full customization & shortcode support."
+    },
+    "descTypo": {
+      "type": "object",
+      "default": {
+        "fontSize": "16px"
+      }
+    },
     "descColor": {
       "type": "string",
       "default": "#7a7a7a"
@@ -81,10 +100,6 @@
     "btnUrl": {
       "type": "string",
       "default": ""
-    },
-    "gap": {
-      "type": "string",
-      "default": "10px"
     },
     "border": {
       "type": "object",

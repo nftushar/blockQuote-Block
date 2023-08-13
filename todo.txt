@@ -1,2 +1,2 @@
-Author,
-Reach text on description,
+Alignment
+Quote color and size
