@@ -15,27 +15,52 @@
       "type": "string",
       "default": ""
     },
+    "content": {
+      "type": "string",
+      "default": "Ultimate FAQ and accordion plugin create Woocommerce faq lists with comment & FAQ schema support, responsive, full customization & shortcode support."
+    },
     "skin": {
       "type": "string",
       "default": ""
     },
-    "alignment": {
+    "background": {
+      "type": "object",
+      "default": {
+        "color": "#ffcc00"
+      }
+    },
+    "border": {
+      "type": "object",
+      "default": {
+        "radius": "0px"
+      }
+    },
+    "textAlign": {
       "type": "string",
       "default": "center"
     },
-    "bgColor": {
-      "type": "object",  
+    "typography": {
+      "type": "object",
       "default": {
-        "color": "#ffcc00"  
+        "fontSize": 40
       }
     },
-    "quoteColor": {
-      "type": "string",
-      "default": "#7a7a7a"
+    "quotePadding": {
+      "type": "object",
+      "default": {
+        "top": "40px",
+        "right": "40px",
+        "bottom": "40px",
+        "left": "40px"
+      }
     },
-    "quoteSize": {
+    "color": {
       "type": "string",
-      "default": "150px"
+      "default": "#fff"
+    },
+    "textShadow": {
+      "type": "array",
+      "default": []
     },
     "author": {
       "type": "string",
@@ -44,68 +69,20 @@
     "authorTypo": {
       "type": "object",
       "default": {
-        "fontSize": "16px"
+        "fontSize": 20
       }
     },
     "authorColor": {
       "type": "string",
-      "default": "#7a7a7a"
+      "default": "#336699"
     },
-    "desc": {
+    "quoteColor": {
       "type": "string",
-      "default": "Ultimate FAQ and accordion plugin create Woocommerce faq lists with comment & FAQ schema support, responsive, full customization & shortcode support."
+      "default": "#336699"
     },
-    "descTypo": {
-      "type": "object",
-      "default": {
-        "fontSize": "40px"
-      }
-    },
-    "descColor": {
+    "quoteSize": {
       "type": "string",
-      "default": "#7a7a7a"
-    },
-    "descShadow": {
-      "type": "array",
-      "default": []
-    },
-    "btnShow": {
-      "type": "boolean",
-      "default": true
-    },
-    "btnView": {
-      "type": "string",
-      "default": ""
-    },
-    "iconStyle": {
-      "type": "string",
-      "default": "solid"
-    },
-    "btnSkin": {
-      "type": "string",
-      "default": ""
-    },
-    "btnLabel": {
-      "type": "string",
-      "default": ""
-    },
-    "btnUsername": {
-      "type": "string",
-      "default": ""
-    },
-    "btnTarget": {
-      "type": "string",
-      "default": ""
-    },
-    "btnUrl": {
-      "type": "string",
-      "default": ""
-    },
-    "border": {
-      "type": "object",
-      "default": {
-        "radius": "0px"
-      }
+      "default": "128px"
     }
   },
   "supports": {

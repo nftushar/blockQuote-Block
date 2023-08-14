@@ -7,6 +7,7 @@ import {
 	TextControl,
 	TextareaControl,
 	__experimentalUnitControl as UnitControl,
+	__experimentalBoxControl as BoxControl
 
 } from "@wordpress/components";
 import {
@@ -31,21 +32,22 @@ const alignments = [
 const Settings = ({ attributes, setAttributes }) => {
 	const {
 		cId,
-		alignment,
-		bgColor,
+		textAlign,
+		background,
 		quoteColor,
 		quoteSize,
 		author,
 		authorColor,
 		authorTypo,
-		desc,
-		descShadow,
-		descColor,
-		descTypo,
+		quotePadding,
+		content,
+		textShadow,
+		color,
+		typography,
 		border,
 	} = attributes;
 
-	// console.log(bgColor);
+	// console.log(background);
 	return (
 		<>
 			<InspectorControls>
@@ -66,12 +68,24 @@ const Settings = ({ attributes, setAttributes }) => {
 
 									<BtnGroup
 										className="mt20"
-										label={__("Alignment", "blockquote")}
-										value={alignment}
-										onChange={(val) => setAttributes({ alignment: val })}
+										label={__("textAlign", "blockquote")}
+										value={textAlign}
+										onChange={(val) => setAttributes({ textAlign: val })}
 										options={alignments}
 										isIcon={true}
 									/>
+									<PanelBody className='bPlPanelBody' title={__('Tab/Menu', 'stepped-content')}>
+										<BoxControl
+											label={__("Padding", "tcb")}
+											values={quotePadding}
+											resetValues={{
+												"top": "0px",
+												"right": "0px",
+												"bottom": "0px",
+												"left": "0px"
+											}}
+											onChange={(value) => setAttributes({ quotePadding: value })} />
+									</PanelBody>
 									<TextControl
 										autoComplete="off"
 										label={__("Author", "blockquote")}
@@ -80,70 +94,30 @@ const Settings = ({ attributes, setAttributes }) => {
 									/>
 									<TextareaControl
 										label="Description"
-										value={desc}
-										onChange={(val) => setAttributes({ desc: val })}
+										value={content}
+										onChange={(val) => setAttributes({ content: val })}
 									/>
 								</PanelBody>
 							)}
 
-							{tab.name === "style" && (
+							{tab.name === "style" && <>
 								<PanelBody
 									className="bPlPanelBody"
-									title={__("Manage Blockquote", "blockquote")}
+									title={__("Wrapper", "blockquote")}
 								>
 									<Background
-										label={__("BG Color", "star-rating")}
-										value={bgColor}
-										onChange={(val) => setAttributes({ bgColor: val })}
+										label={__("BG Color", "blockquote")}
+										value={background}
+										onChange={(val) => setAttributes({ background: val })}
 										defaultColor="#ffcc00"
 										isGradient={false}
 										isImage={false}
 									/>
 
-									<BColor
-										label={__("Quote Color", "star-rating")}
-										value={quoteColor}
-										onChange={(val) => setAttributes({ quoteColor: val })}
-										defaultColor="#0000"
-									/>
 
-									<UnitControl
-										label={__("quote Size", "star-rating")}
-										className="mt20"
-										labelPosition="left"
-										value={quoteSize}
-										onChange={(val) => setAttributes({ quoteSize: val })}
-										isResetValueOnUnitChange={true}
-									/>
 
-									<Typography
-										label={__("Author Typography", "blockquote")}
-										value={authorTypo}
-										onChange={(val) => setAttributes({ authorTypo: val })}
-										defaults={{ fontSize: 16 }}
-										produce={produce}
-									/>
 
-									<Typography
-										label={__("Desc Typography", "blockquote")}
-										value={descTypo}
-										onChange={(val) => setAttributes({ descTypo: val })}
-										defaults={{ fontSize: 16 }}
-										produce={produce}
-									/>
-									<BColor
-										label={__("Author Color", "star-rating")}
-										value={authorColor}
-										onChange={(val) => setAttributes({ authorColor: val })}
-										defaultColor="#0000"
-									/>
 
-									<BColor
-										label={__("Description Color", "star-rating")}
-										value={descColor}
-										onChange={(val) => setAttributes({ descColor: val })}
-										defaultColor="#0000"
-									/>
 
 									<BorderControl
 										label={__("Border:", "blockquote")}
@@ -152,15 +126,75 @@ const Settings = ({ attributes, setAttributes }) => {
 										defaults={{ radius: "5px" }}
 									/>
 
+
+								</PanelBody>
+
+
+								<PanelBody className="bPlPanelBody" title={__("Content", "blockquote")} initialOpen={false}>
+
+									<Typography
+										label={__("content Typography", "blockquote")}
+										value={typography}
+										onChange={(val) => setAttributes({ typography: val })}
+										defaults={{ fontSize: 16 }}
+										produce={produce}
+									/>
+
+
+									<BColor
+										label={__("Color", "blockquote")}
+										value={color}
+										onChange={(val) => setAttributes({ color: val })}
+										defaultColor="#0000"
+									/>
+
 									<MultiShadowControl
 										className="mt20"
-										value={descShadow}
-										onChange={(val) => setAttributes({ descShadow: val })}
+										label={__("Text Shadow", "blockquote")}
+										value={textShadow}
+										onChange={(val) => setAttributes({ textShadow: val })}
 										type="text"
 										produce={produce}
 									/>
 								</PanelBody>
-							)}
+
+
+								<PanelBody className="bPlPanelBody" title={__("Author", "blockquote")} initialOpen={false}>
+									<Typography
+										label={__("Typography", "blockquote")}
+										value={authorTypo}
+										onChange={(val) => setAttributes({ authorTypo: val })}
+										defaults={{ fontSize: 16 }}
+										produce={produce}
+									/>
+
+									<BColor
+										label={__("Color", "blockquote")}
+										value={authorColor}
+										onChange={(val) => setAttributes({ authorColor: val })}
+										defaultColor="#0000"
+									/>
+								</PanelBody>
+
+
+								<PanelBody className="bPlPanelBody" title={__("Quote", "blockquote")} initialOpen={false}>
+									<BColor
+										label={__("Color", "blockquote")}
+										value={quoteColor}
+										onChange={(val) => setAttributes({ quoteColor: val })}
+										defaultColor="#0000"
+									/>
+
+									<UnitControl
+										label={__("Size", "blockquote")}
+										className="mt20"
+										labelPosition="left"
+										value={quoteSize}
+										onChange={(val) => setAttributes({ quoteSize: val })}
+										isResetValueOnUnitChange={true}
+									/>
+								</PanelBody>
+							</>}
 						</>
 					)}
 				</TabPanel>

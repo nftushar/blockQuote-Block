@@ -1,28 +1,16 @@
-import { useState } from 'react'; 
+import { useState } from 'react';
 
-const Blockquote = ({ attributes, clientId }) => {
-    const {  title } = attributes;
+const Blockquote = ({ attributes, clientId, children }) => {
+    const { author, content } = attributes;
 
-    const [isNowFull, setIsNowFull] = useState(false);
+    return <div className="bBlocksBlockquote default">
+        <span className="quote quoteOpen">❝</span>
 
-    const onFullScreen = () => {
-        const element = document.querySelector(`#bBlocksBlockquote-${clientId}`);
+        {children}
 
-        if (document.fullscreenElement) {
-            setIsNowFull(false);
-            document.exitFullscreen();
-        } else {
-            setIsNowFull(true);
-            element.requestFullscreen();
-        }
-    };
+        <cite>{author}</cite>
 
-    return <div className='bBlocksBlockquote'>
-        <blockquote
-            title={title}
-            width='100%'
-            height='100%'
-        ></blockquote>
+        <span className="quote quoteClose">❞</span>
     </div>
 }
 export default Blockquote;

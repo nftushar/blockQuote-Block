@@ -7,8 +7,8 @@ import { __ } from "@wordpress/i18n";
 
 const Edit = (props) => {
   const { className, attributes, setAttributes, clientId } = props;
-  const { skin, alignment, author, desc } = attributes;
-// console.log(props);
+  const { textAlign, author, content } = attributes;
+  // console.log(props);
   useEffect(() => {
     clientId && setAttributes({ cId: clientId });
   }, [clientId]);
@@ -20,14 +20,16 @@ const Edit = (props) => {
       <div className={className} id={`bBlocksBlockquote-${clientId}`}>
         <div className="bBlocksBlockquote default">
           <span className="quote quoteOpen">❝</span>
-          <RichText
-            tagName="blockquote"
-            value={desc}
-            allowedFormats={["core/bold", "core/italic"]}
-            onChange={(val) => setAttributes({ desc: val })}
-            placeholder={__("Add Your Text...")}
-          />
-          <cite>{author}</cite>
+          <div className="content">
+            <RichText
+              tagName="blockquote"
+              value={content}
+              allowedFormats={["core/bold", "core/italic"]}
+              onChange={(val) => setAttributes({ content: val })}
+              placeholder={__("Add Your Text...")}
+            />
+            <cite>{author}</cite>
+          </div>
           <span className="quote quoteClose">❞</span>
         </div>
 

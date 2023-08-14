@@ -21,8 +21,8 @@ $primaryColor: #4527a4;
 		overflow: visible;
 
 		blockquote {
-			// padding: 0;
-			// margin: 0;
+			padding: 0;
+			margin: 0;
 			// color: white;
 			// text-shadow: -1px 1px #555;
 			// font-style: italic;
@@ -42,8 +42,15 @@ $primaryColor: #4527a4;
 	.default {
 		position: relative;
 		// max-width: 70%;
+
+		.content {
+			padding: 40px 70px;
+			// text-align: left;
+		}
+
 		blockquote {
 			position: relative;
+			margin-bottom: 10px;
 			z-index: 20;
 		}
 		cite {

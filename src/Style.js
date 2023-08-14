@@ -1,11 +1,11 @@
-import {  getBorderCSS, getMultiShadowCSS, getTypoCSS, getBackgroundCSS } from "../../Components/utils/getCSS";
+import { getBoxValue } from "../../Components/utils/functions";
+import { getBorderCSS, getMultiShadowCSS, getTypoCSS, getBackgroundCSS } from "../../Components/utils/getCSS";
 
 const Style = ({ attributes, clientId }) => {
-    const { border, descShadow, descColor, descTypo, quoteColor, quoteSize, authorColor, authorTypo, bgColor } = attributes;
-    // console.log(quoteSize);
+    const { border, textShadow, color, typography, quotePadding, textAlign, quoteColor, quoteSize, authorColor, authorTypo, background } = attributes;
 
-    const mainClass = ` #bBlocksBlockquote-${clientId}`;
-    const quoteSl = ` #{mainClass} .bBlocksBlockquote`;
+    const mainSl = `#bBlocksBlockquote-${clientId}`;
+    const quoteSl = `${mainSl} .bBlocksBlockquote`;
 
     return (
         <style
@@ -15,23 +15,28 @@ const Style = ({ attributes, clientId }) => {
         ${getTypoCSS(``, authorTypo)?.googleFontLink}
         ${getTypoCSS(`${quoteSl} cite`, authorTypo)?.styles} 
         
-        ${getTypoCSS(``, descTypo)?.googleFontLink}
-        ${getTypoCSS(`${quoteSl} blockquote`, descTypo)?.styles}
+        ${getTypoCSS(``, typography)?.googleFontLink}
+        ${getTypoCSS(`${quoteSl} blockquote`, typography)?.styles}
 
-        ${mainClass}{ 
-            ${getBackgroundCSS(bgColor)}
+        ${mainSl}{ 
+            ${getBackgroundCSS(background)}
+            padding: ${getBoxValue(quotePadding)};
         }
         ${quoteSl}{
             ${getBorderCSS(border)}
         }
         ${quoteSl} .quote{
-            ${getBackgroundCSS(bgColor)}
+            ${getBackgroundCSS(background)}
                 color:${quoteColor};
                 font-size:${quoteSize}
         }
+        ${quoteSl} .content{
+            padding: ${getBoxValue(quotePadding)};
+            text-align: ${textAlign};
+        }
         ${quoteSl} blockquote{
-            text-shadow: ${getMultiShadowCSS(descShadow, "text")};
-            color:${descColor}
+            text-shadow: ${getMultiShadowCSS(textShadow, "text")};
+            color:${color}
         }
         ${quoteSl} cite{
             color: ${authorColor}
