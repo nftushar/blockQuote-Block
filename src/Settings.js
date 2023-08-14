@@ -96,10 +96,8 @@ const Settings = ({ attributes, setAttributes }) => {
 										value={bgColor}
 										onChange={(val) => setAttributes({ bgColor: val })}
 										defaultColor="#ffcc00"
-										isGradient 
-										={true}
+										isGradient={false}
 										isImage={false}
-
 									/>
 
 									<BColor
@@ -111,6 +109,7 @@ const Settings = ({ attributes, setAttributes }) => {
 
 									<UnitControl
 										label={__("quote Size", "star-rating")}
+										className="mt20"
 										labelPosition="left"
 										value={quoteSize}
 										onChange={(val) => setAttributes({ quoteSize: val })}

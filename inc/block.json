@@ -35,7 +35,7 @@
     },
     "quoteSize": {
       "type": "string",
-      "default": "100px"
+      "default": "150px"
     },
     "author": {
       "type": "string",
@@ -58,7 +58,7 @@
     "descTypo": {
       "type": "object",
       "default": {
-        "fontSize": "16px"
+        "fontSize": "40px"
       }
     },
     "descColor": {

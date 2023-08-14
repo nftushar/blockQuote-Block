@@ -1,2 +1,3 @@
 Alignment
-Quote color and size
+Quote  size
+Author Typo & color

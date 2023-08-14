@@ -2,7 +2,7 @@ import {  getBorderCSS, getMultiShadowCSS, getTypoCSS, getBackgroundCSS } from "
 
 const Style = ({ attributes, clientId }) => {
     const { border, descShadow, descColor, descTypo, quoteColor, quoteSize, authorColor, authorTypo, bgColor } = attributes;
-    // console.log(bgColor);
+    // console.log(quoteSize);
 
     const mainClass = ` #bBlocksBlockquote-${clientId}`;
     const quoteSl = ` #{mainClass} .bBlocksBlockquote`;
