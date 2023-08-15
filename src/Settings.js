@@ -19,6 +19,7 @@ import {
 	Background
 } from "../../Components";
 
+
 const alignments = [
 	{ label: __("left", "rating"), value: "left", icon: "editor-alignleft" },
 	{
@@ -31,20 +32,9 @@ const alignments = [
 
 const Settings = ({ attributes, setAttributes }) => {
 	const {
-		textAlign,
-		background,
-		quoteColor,
-		quoteSize,
-		author,
-		authorColor,
-		authorTypo,
-		quotePadding,
-		content,
-		textShadow,
-		color,
-		typography,
-		border,
+		textAlign, background, quoteColor, quoteSize, author, authorColor, authorTypo, quotePadding, content, textShadow, color, typography, border,
 	} = attributes;
+	// console.log(typography);
 
 	return (
 		<>

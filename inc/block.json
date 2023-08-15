@@ -31,7 +31,7 @@
     },
     "border": {
       "type": "object",
-      "default": { 
+      "default": {
         "radius": "5px",
         "width": "1px",
         "color": "rgba(0, 0, 0, 0.85)"
@@ -44,7 +44,8 @@
     "typography": {
       "type": "object",
       "default": {
-        "fontSize": 40
+        "fontSize": 40,
+        "fontStyle": "italic"
       }
     },
     "quotePadding": {
@@ -62,8 +63,11 @@
     },
     "textShadow": {
       "type": "array",
-      "default": []
+      "default": [
+        { "hOffset": "-1px", "vOffset": "1px", "blur": "0px", "color": "#555" }
+      ]
     },
+
     "author": {
       "type": "string",
       "default": "NF Tushar"
@@ -84,7 +88,7 @@
     },
     "quoteSize": {
       "type": "string",
-      "default": "128px"
+      "default": "110px"
     }
   },
   "supports": {

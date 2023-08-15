@@ -11,12 +11,10 @@ const Style = ({ attributes, clientId }) => {
         <style
             dangerouslySetInnerHTML={{
                 __html: `
-        
+                ${getTypoCSS(``, typography)?.googleFontLink}
         ${getTypoCSS(``, authorTypo)?.googleFontLink}
-        ${getTypoCSS(`${quoteSl} cite`, authorTypo)?.styles} 
-        
-        ${getTypoCSS(``, typography)?.googleFontLink}
         ${getTypoCSS(`${quoteSl} blockquote`, typography)?.styles}
+        ${getTypoCSS(`${quoteSl} cite`, authorTypo)?.styles}
 
         ${mainSl}{ 
             ${getBackgroundCSS(background)}
