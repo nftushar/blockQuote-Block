@@ -31,7 +31,6 @@ const alignments = [
 
 const Settings = ({ attributes, setAttributes }) => {
 	const {
-		cId,
 		textAlign,
 		background,
 		quoteColor,
@@ -47,7 +46,6 @@ const Settings = ({ attributes, setAttributes }) => {
 		border,
 	} = attributes;
 
-	// console.log(background);
 	return (
 		<>
 			<InspectorControls>
@@ -114,11 +112,6 @@ const Settings = ({ attributes, setAttributes }) => {
 										isImage={false}
 									/>
 
-
-
-
-
-
 									<BorderControl
 										label={__("Border:", "blockquote")}
 										value={border}
@@ -126,9 +119,7 @@ const Settings = ({ attributes, setAttributes }) => {
 										defaults={{ radius: "5px" }}
 									/>
 
-
 								</PanelBody>
-
 
 								<PanelBody className="bPlPanelBody" title={__("Content", "blockquote")} initialOpen={false}>
 
@@ -139,7 +130,6 @@ const Settings = ({ attributes, setAttributes }) => {
 										defaults={{ fontSize: 16 }}
 										produce={produce}
 									/>
-
 
 									<BColor
 										label={__("Color", "blockquote")}
@@ -158,7 +148,6 @@ const Settings = ({ attributes, setAttributes }) => {
 									/>
 								</PanelBody>
 
-
 								<PanelBody className="bPlPanelBody" title={__("Author", "blockquote")} initialOpen={false}>
 									<Typography
 										label={__("Typography", "blockquote")}
@@ -175,7 +164,6 @@ const Settings = ({ attributes, setAttributes }) => {
 										defaultColor="#0000"
 									/>
 								</PanelBody>
-
 
 								<PanelBody className="bPlPanelBody" title={__("Quote", "blockquote")} initialOpen={false}>
 									<BColor

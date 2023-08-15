@@ -5,7 +5,6 @@ $primaryColor: #4527a4;
 		box-sizing: border-box;
 	}
 
-	// background: #ffcc00;
 	justify-content: center;
 	padding: 70px 0;
 	overflow: hidden;
@@ -14,7 +13,6 @@ $primaryColor: #4527a4;
 		position: relative;
 		overflow: hidden;
 		padding: 0 20px;
-
 		text-align: center;
 		font-size: 3.3rem;
 		margin: auto;
@@ -22,16 +20,9 @@ $primaryColor: #4527a4;
 
 		blockquote {
 			padding: 0;
-			margin: 0;
-			// color: white;
-			// text-shadow: -1px 1px #555;
-			// font-style: italic;
+			margin: 0; 
 		}
-
-		cite {
-			// font-size: 1.7rem;
-			// color: #336699;
-
+		cite { 
 			&:before {
 				content: "\2014 \0020";
 				width: 5px;
@@ -40,14 +31,10 @@ $primaryColor: #4527a4;
 	}
 
 	.default {
-		position: relative;
-		// max-width: 70%;
-
+		position: relative; 
 		.content {
-			padding: 40px 70px;
-			// text-align: left;
+			padding: 40px 70px; 
 		}
-
 		blockquote {
 			position: relative;
 			margin-bottom: 10px;
@@ -63,10 +50,7 @@ $primaryColor: #4527a4;
 			left: -20px;
 			width: 150px;
 			text-align: left;
-			z-index: 10;
-			// font-size: 8rem;
-			// color: #336699;
-			// background-color: #ffcc00;
+			z-index: 10; 
 			line-height: 200px;
 		}
 		.quoteClose {
@@ -75,10 +59,7 @@ $primaryColor: #4527a4;
 			right: -20px;
 			width: 150px;
 			text-align: right;
-			z-index: 10;
-			// font-size: 8rem;
-			// color: #336699;
-			// background-color: #ffcc00;
+			z-index: 10; 
 			line-height: 200px;
 		}
 	}

@@ -17,7 +17,7 @@
     },
     "content": {
       "type": "string",
-      "default": "Ultimate FAQ and accordion plugin create Woocommerce faq lists with comment & FAQ schema support, responsive, full customization & shortcode support."
+      "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
     },
     "skin": {
       "type": "string",
@@ -31,8 +31,10 @@
     },
     "border": {
       "type": "object",
-      "default": {
-        "radius": "0px"
+      "default": { 
+        "radius": "5px",
+        "width": "1px",
+        "color": "rgba(0, 0, 0, 0.85)"
       }
     },
     "textAlign": {

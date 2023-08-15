@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const attributes = JSON.parse(blockquoteEl.dataset.attributes);
     const { cId } = attributes;
 
-    console.log(attributes);
-
     render(
       <>
         <Style attributes={attributes} clientId={cId} />

@@ -3,7 +3,7 @@ import { getBorderCSS, getMultiShadowCSS, getTypoCSS, getBackgroundCSS } from ".
 
 const Style = ({ attributes, clientId }) => {
     const { border, textShadow, color, typography, quotePadding, textAlign, quoteColor, quoteSize, authorColor, authorTypo, background } = attributes;
-
+ 
     const mainSl = `#bBlocksBlockquote-${clientId}`;
     const quoteSl = `${mainSl} .bBlocksBlockquote`;
 
