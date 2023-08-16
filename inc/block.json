@@ -19,9 +19,9 @@
       "type": "string",
       "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
     },
-    "skin": {
+    "theme": {
       "type": "string",
-      "default": ""
+      "default": "default"
     },
     "background": {
       "type": "object",
@@ -48,7 +48,16 @@
         "fontStyle": "italic"
       }
     },
-    "quotePadding": {
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": "40px",
+        "right": "40px",
+        "bottom": "40px",
+        "left": "40px"
+      }
+    },
+    "contentPadding": {
       "type": "object",
       "default": {
         "top": "40px",

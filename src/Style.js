@@ -2,8 +2,8 @@ import { getBoxValue } from "../../Components/utils/functions";
 import { getBorderCSS, getMultiShadowCSS, getTypoCSS, getBackgroundCSS } from "../../Components/utils/getCSS";
 
 const Style = ({ attributes, clientId }) => {
-    const { border, textShadow, color, typography, quotePadding, textAlign, quoteColor, quoteSize, authorColor, authorTypo, background } = attributes;
- 
+    const { border, textShadow, color, typography, padding, contentPadding, textAlign, quoteColor, quoteSize, authorColor, authorTypo, background } = attributes;
+
     const mainSl = `#bBlocksBlockquote-${clientId}`;
     const quoteSl = `${mainSl} .bBlocksBlockquote`;
 
@@ -18,7 +18,7 @@ const Style = ({ attributes, clientId }) => {
 
         ${mainSl}{ 
             ${getBackgroundCSS(background)}
-            padding: ${getBoxValue(quotePadding)};
+            padding: ${getBoxValue(padding)};
         }
         ${quoteSl}{
             ${getBorderCSS(border)}
@@ -28,9 +28,13 @@ const Style = ({ attributes, clientId }) => {
                 color:${quoteColor};
                 font-size:${quoteSize}
         }
+        ${mainSl} .theme1::before{
+            color:${quoteColor};
+            font-size:${quoteSize}
+        }
         ${quoteSl} .content{
-            padding: ${getBoxValue(quotePadding)};
             text-align: ${textAlign};
+            padding: ${getBoxValue(contentPadding)}
         }
         ${quoteSl} blockquote{
             text-shadow: ${getMultiShadowCSS(textShadow, "text")};

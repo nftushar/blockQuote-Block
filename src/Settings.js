@@ -18,6 +18,7 @@ import {
 	Typography,
 	Background
 } from "../../Components";
+import { SelectControl } from "@wordpress/components";
 
 
 const alignments = [
@@ -31,10 +32,8 @@ const alignments = [
 ];
 
 const Settings = ({ attributes, setAttributes }) => {
-	const {
-		textAlign, background, quoteColor, quoteSize, author, authorColor, authorTypo, quotePadding, content, textShadow, color, typography, border,
-	} = attributes;
-	// console.log(typography);
+	const { theme, textAlign, background, quoteColor, quoteSize, author, authorColor, authorTypo, padding, content, contentPadding, textShadow, color, typography, border,
+	} = attributes; 
 
 	return (
 		<>
@@ -51,9 +50,30 @@ const Settings = ({ attributes, setAttributes }) => {
 							{tab.name === "general" && (
 								<PanelBody
 									className="bPlPanelBody"
-									title={__("Manage Blockquote", "blockquote")}
-								>
+									title={__("Manage Blockquote", "blockquote")} >
 
+									<SelectControl
+										label={__("Theme", "blockquote")}
+										labelPosition="left"
+										value={theme}
+										onChange={(val) => {
+											setAttributes({ theme: val })
+											'default' === val && setAttributes({
+												background: { color: '#ffcc00' },
+											});
+											'theme1' === val && setAttributes({
+												background: { color: '#ededed'},border: { radius: '0px', width: '8px', color: 'rgba(120, 192, 168, 1)', side: 'left'},padding: { top: '0px', right: '0px', bottom: '0px', left: '0px'}, typography: { fontSize: { desktop: 40 }, fontStyle: 'italic'}, color: 'rgba(55, 34, 34, 1)'
+
+
+
+											});
+										}}
+										options={[
+											{ label: "Default", value: "default" },
+											{ label: "Theme 1", value: "theme1" },
+											{ label: "Theme 2", value: "theme2" },
+										]}
+									/>
 									<BtnGroup
 										className="mt20"
 										label={__("textAlign", "blockquote")}
@@ -62,18 +82,7 @@ const Settings = ({ attributes, setAttributes }) => {
 										options={alignments}
 										isIcon={true}
 									/>
-									<PanelBody className='bPlPanelBody' title={__('Tab/Menu', 'stepped-content')}>
-										<BoxControl
-											label={__("Padding", "tcb")}
-											values={quotePadding}
-											resetValues={{
-												"top": "0px",
-												"right": "0px",
-												"bottom": "0px",
-												"left": "0px"
-											}}
-											onChange={(value) => setAttributes({ quotePadding: value })} />
-									</PanelBody>
+
 									<TextControl
 										autoComplete="off"
 										label={__("Author", "blockquote")}
@@ -102,6 +111,17 @@ const Settings = ({ attributes, setAttributes }) => {
 										isImage={false}
 									/>
 
+									<BoxControl
+										label={__("Padding", "tcb")}
+										values={padding}
+										resetValues={{
+											"top": "0px",
+											"right": "0px",
+											"bottom": "0px",
+											"left": "0px"
+										}}
+										onChange={(value) => setAttributes({ padding: value })} />
+
 									<BorderControl
 										label={__("Border:", "blockquote")}
 										value={border}
@@ -112,7 +132,16 @@ const Settings = ({ attributes, setAttributes }) => {
 								</PanelBody>
 
 								<PanelBody className="bPlPanelBody" title={__("Content", "blockquote")} initialOpen={false}>
-
+								<BoxControl
+										label={__("Padding", "blockquote")}
+										values={contentPadding}
+										resetValues={{
+											"top": "0px",
+											"right": "0px",
+											"bottom": "0px",
+											"left": "0px"
+										}}
+										onChange={(value) => setAttributes({ contentPadding: value })} />
 									<Typography
 										label={__("content Typography", "blockquote")}
 										value={typography}

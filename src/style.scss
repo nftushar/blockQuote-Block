@@ -6,23 +6,20 @@ $primaryColor: #4527a4;
 	}
 
 	justify-content: center;
-	padding: 70px 0;
 	overflow: hidden;
 
 	.bBlocksBlockquote {
 		position: relative;
 		overflow: hidden;
-		padding: 0 20px;
 		text-align: center;
-		font-size: 3.3rem;
 		margin: auto;
 		overflow: visible;
 
 		blockquote {
 			padding: 0;
-			margin: 0; 
+			margin: 0;
 		}
-		cite { 
+		cite {
 			&:before {
 				content: "\2014 \0020";
 				width: 5px;
@@ -31,9 +28,11 @@ $primaryColor: #4527a4;
 	}
 
 	.default {
-		position: relative; 
+		position: relative;
+		padding: 0 20px;
+
 		.content {
-			padding: 40px 70px; 
+			padding: 40px 70px;
 		}
 		blockquote {
 			position: relative;
@@ -50,7 +49,7 @@ $primaryColor: #4527a4;
 			left: -20px;
 			width: 150px;
 			text-align: left;
-			z-index: 10; 
+			z-index: 10;
 			line-height: 200px;
 		}
 		.quoteClose {
@@ -59,8 +58,42 @@ $primaryColor: #4527a4;
 			right: -20px;
 			width: 150px;
 			text-align: right;
-			z-index: 10; 
+			z-index: 10;
 			line-height: 200px;
+		}
+	}
+
+	.theme1 {
+		position: relative;
+
+		.content {
+			padding: 30px 0 30px 100px;
+
+			blockquote{
+				&::before {
+					content: '';
+				}
+			}
+		}
+
+		&::before {
+			font-family: Arial;
+			content: "\201C";
+			color: #78c0a8;
+			font-size: 180px;
+			font-style: italic;
+			line-height: 150px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		cite {
+			display: block;
+			color: #333333;
+			font-style: normal;
+			font-weight: bold;
+			margin-top: 1em;
 		}
 	}
 }

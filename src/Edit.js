@@ -1,16 +1,36 @@
 import { useEffect } from "react";
+import { __ } from "@wordpress/i18n";
 import { RichText } from "@wordpress/block-editor";
+
 import Settings from "./Settings";
 import Style from "./Style";
-import { __ } from "@wordpress/i18n";
+import Blockquote from "./Blockquote";
 
 const Edit = (props) => {
   const { className, attributes, setAttributes, clientId } = props;
-  const { author, content } = attributes; 
+  const { author, content, theme } = attributes;
 
   useEffect(() => {
     clientId && setAttributes({ cId: clientId });
   }, [clientId]);
+
+  const contentEl = <RichText
+    tagName="blockquote"
+    value={content}
+    allowedFormats={["core/bold", "core/italic"]}
+    onChange={(val) => setAttributes({ content: val })}
+    placeholder={__("Add Your Text...")}
+    inlineToolbar
+    className={theme}
+  />
+
+  const authorEl = <RichText
+    tagName="cite"
+    value={author}
+    allowedFormats={["core/bold", "core/italic"]}
+    onChange={(val) => setAttributes({ author: val })}
+    placeholder={__("Add Your Text...")}
+  />
 
   return <>
     <Settings attributes={attributes} setAttributes={setAttributes} />
@@ -18,27 +38,7 @@ const Edit = (props) => {
     <div className={className} id={`bBlocksBlockquote-${clientId}`}>
       <Style attributes={attributes} clientId={clientId} />
 
-      <div className="bBlocksBlockquote default">
-        <span className="quote quoteOpen">❝</span>
-        <div className="content">
-          <RichText
-            tagName="blockquote"
-            value={content}
-            allowedFormats={["core/bold", "core/italic"]}
-            onChange={(val) => setAttributes({ content: val })}
-            placeholder={__("Add Your Text...")}
-            inlineToolbar
-          />
-          <RichText
-            tagName="cite"
-            value={author}
-            allowedFormats={["core/bold", "core/italic"]}
-            onChange={(val) => setAttributes({ author: val })}
-            placeholder={__("Add Your Text...")}
-          />
-        </div>
-        <span className="quote quoteClose">❞</span>
-      </div>
+      <Blockquote attributes={attributes} clientId={clientId} contentEl={contentEl} authorEl={authorEl} />
     </div>
   </>
 };

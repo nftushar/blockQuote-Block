@@ -1,14 +1,17 @@
-const Blockquote = ({ attributes, children }) => {
-    const { author, content } = attributes;
+import Default from "./Theme/Default";
+import Theme1 from "./Theme/Theme1";
+import Theme2 from "./Theme/Theme2";
 
-    return <div className="bBlocksBlockquote default">
-        <span className="quote quoteOpen">❝</span>
-        <div className='content'>
-            {children}
-            <blockquote dangerouslySetInnerHTML={{ __html: content }} />
-            <cite dangerouslySetInnerHTML={{ __html: author }} />
-        </div>
-        <span className="quote quoteClose">❞</span>
-    </div>
+const Blockquote = ({ attributes, contentEl, authorEl }) => {
+    const { theme } = attributes;
+
+    switch (theme) {
+        case 'theme2':
+            return <Theme2 attributes={attributes} contentEl={contentEl} authorEl={authorEl} />;
+        case 'theme1':
+            return <Theme1 attributes={attributes} contentEl={contentEl} authorEl={authorEl} />;
+        default:
+            return <Default attributes={attributes} contentEl={contentEl} authorEl={authorEl} />;
+    }
 }
 export default Blockquote;
