@@ -62,17 +62,17 @@ const Settings = ({ attributes, setAttributes }) => {
 												background: { color: '#ffcc00' },
 												padding: { top: '40px', right: '40px', bottom: '40px', left: '40px' },
 												border: { radius: "0px", width: "1px", color: "#000", side: "all" },
-												typography: { ...typography, fontSize: { desktop: 32 }, fontFamily: "Default", fontWeight: 400,  fontVariant : "400" },
+												typography: { ...typography, fontSize: { desktop: 32 }, fontFamily: "Default", fontWeight: 400,  fontVariant : "400" }, quoteColor :"#336699", 
 												color: '#fff'
 											});
 											'theme1' === val && setAttributes({
 												background: { color: '#ededed' },
 												border: { radius: '0px', width: '8px', color: 'rgba(120, 192, 168, 1)', side: 'left' },
 												padding: { top: '0px', right: '0px', bottom: '0px', left: '0px' },
-												typography: { ...typography, fontSize: { desktop: 24 }, fontFamily: "Open Sans", "fontWeight": 300, "fontVariant": "300i" },
+												typography: { ...typography, fontSize: { desktop: 24 }, fontFamily: "Open Sans", "fontWeight": 300,  fontVariant : "300i" }, quoteColor :"#78C0A8", 
 												authorTypo: { fontSize: { desktop: 20 } },
 												color: 'rgba(55, 34, 34, 1)'
-											}); 
+											});  
 										}}
 										options={[
 											{ label: "Default", value: "default" },
