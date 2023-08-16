@@ -69,9 +69,9 @@ $primaryColor: #4527a4;
 		.content {
 			padding: 30px 0 30px 100px;
 
-			blockquote{
+			blockquote {
 				&::before {
-					content: '';
+					content: "";
 				}
 			}
 		}
@@ -82,7 +82,7 @@ $primaryColor: #4527a4;
 			color: #78c0a8;
 			font-size: 180px;
 			font-style: italic;
-			line-height: 150px;
+			line-height: 90px;
 			position: absolute;
 			left: 0;
 			top: 0;

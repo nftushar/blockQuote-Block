@@ -33,7 +33,7 @@ const alignments = [
 
 const Settings = ({ attributes, setAttributes }) => {
 	const { theme, textAlign, background, quoteColor, quoteSize, author, authorColor, authorTypo, padding, content, contentPadding, textShadow, color, typography, border,
-	} = attributes; 
+	} = attributes;
 
 	return (
 		<>
@@ -60,13 +60,19 @@ const Settings = ({ attributes, setAttributes }) => {
 											setAttributes({ theme: val })
 											'default' === val && setAttributes({
 												background: { color: '#ffcc00' },
+												padding: { top: '40px', right: '40px', bottom: '40px', left: '40px' },
+												border: { radius: "0px", width: "1px", color: "#000", side: "all" },
+												typography: { ...typography, fontSize: { desktop: 32 }, fontFamily: "Default", fontWeight: 400,  fontVariant : "400" },
+												color: '#fff'
 											});
 											'theme1' === val && setAttributes({
-												background: { color: '#ededed'},border: { radius: '0px', width: '8px', color: 'rgba(120, 192, 168, 1)', side: 'left'},padding: { top: '0px', right: '0px', bottom: '0px', left: '0px'}, typography: { fontSize: { desktop: 40 }, fontStyle: 'italic'}, color: 'rgba(55, 34, 34, 1)'
-
-
-
-											});
+												background: { color: '#ededed' },
+												border: { radius: '0px', width: '8px', color: 'rgba(120, 192, 168, 1)', side: 'left' },
+												padding: { top: '0px', right: '0px', bottom: '0px', left: '0px' },
+												typography: { ...typography, fontSize: { desktop: 24 }, fontFamily: "Open Sans", "fontWeight": 300, "fontVariant": "300i" },
+												authorTypo: { fontSize: { desktop: 20 } },
+												color: 'rgba(55, 34, 34, 1)'
+											}); 
 										}}
 										options={[
 											{ label: "Default", value: "default" },
@@ -132,14 +138,14 @@ const Settings = ({ attributes, setAttributes }) => {
 								</PanelBody>
 
 								<PanelBody className="bPlPanelBody" title={__("Content", "blockquote")} initialOpen={false}>
-								<BoxControl
+									<BoxControl
 										label={__("Padding", "blockquote")}
 										values={contentPadding}
 										resetValues={{
-											"top": "0px",
+											"top": "30px",
 											"right": "0px",
-											"bottom": "0px",
-											"left": "0px"
+											"bottom": "30px",
+											"left": "100px"
 										}}
 										onChange={(value) => setAttributes({ contentPadding: value })} />
 									<Typography

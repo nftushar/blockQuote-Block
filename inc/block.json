@@ -93,7 +93,7 @@
     },
     "quoteColor": {
       "type": "string",
-      "default": "#336699"
+      "default": "#78C0A8"
     },
     "quoteSize": {
       "type": "string",
