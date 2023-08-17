@@ -25,7 +25,8 @@ const Style = ({ attributes, clientId }) => {
         ${mainSl} .theme1::before,
         ${mainSl} .theme2::before{
             color: ${quoteColor};
-            font-size: ${quoteSize} 
+            font-size: ${quoteSize}; 
+            ${getBackgroundCSS(background)}
         }
         ${quoteSl} .quote{
             ${getBackgroundCSS(background)}

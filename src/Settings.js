@@ -49,8 +49,7 @@ const Settings = ({ attributes, setAttributes }) => {
 						<>
 							{tab.name === "general" && <>
 								<PanelBody className="bPlPanelBody" title={__("Blockquote", "blockquote")}>
-									<TextareaControl
-										className="mt20"
+									<TextareaControl 
 										label="Quote"
 										value={content}
 										onChange={(val) => setAttributes({ content: val })}
@@ -77,9 +76,9 @@ const Settings = ({ attributes, setAttributes }) => {
 												background: { color: '#ffcc00' },
 												padding: { top: '40px', right: '60px', bottom: '40px', left: '60px' },
 												border: { radius: "0px", width: "1px", color: "#000", side: "all" },
-												typography: { ...typography, fontSize: { desktop: 32 }, fontFamily: "Open Sans", fontStyle: "italic", fontWeight: "400", fontVariant: "400" },
+												typography: { ...typography, fontSize: { desktop: 32 }, fontFamily: "Open Sans", fontStyle: "italic", fontWeight: 400, fontVariant: "400" },
 												color: '#fff',
-												textShadow: [ { "hOffset": "-1px", "vOffset": "1px", "blur": "0px", "color": "#555" }],
+												textShadow: [{ hOffset: "-1px", vOffset: "1px", blur: "0px", color: "#555" }],
 												authorTypo: { fontSize: { desktop: 20 } },
 												quoteColor: "#336699"
 											});
@@ -87,17 +86,17 @@ const Settings = ({ attributes, setAttributes }) => {
 												background: { color: '#ededed' },
 												padding: { top: '0px', right: '0px', bottom: '0px', left: '0px' },
 												border: { radius: '0px', width: '8px', color: 'rgba(120, 192, 168, 1)', side: 'left' },
-												typography: { ...typography, fontSize: { desktop: 24 }, fontFamily: "Open Sans", fontStyle: "italic", fontWeight: "300", fontVariant: "300i" },
+												typography: { ...typography, fontSize: { desktop: 24 }, fontFamily: "Open Sans", fontStyle: "italic", fontWeight: 300, fontVariant: "300i" },
 												color: 'rgba(55, 34, 34, 1)',
-												textShadow: [ { "hOffset": "-1px", "vOffset": "1px", "blur": "0px", "color": "#555" }],
+												textShadow: [{ hOffset: "-1px", vOffset: "1px", blur: "0px", color: "#555" }],
 												authorTypo: { fontSize: { desktop: 20 } },
 												quoteColor: "#78C0A8",
 											});
 											'theme2' === val && setAttributes({
-												background: { "color": "#fff" },
-												padding: { "top": "24px", "right": "0px", "bottom": "24px", "left": "0px" },
+												background: { color: "#fff" },
+												padding: { top: "24px", right: "0px", bottom: "24px", left: "0px" },
 												border: { radius: "0px", width: "2px", color: "#eee", side: "topBottom" },
-												typography: { ...typography, fontSize: { desktop: 19 }, fontFamily: "Open Sans", fontStyle: "normal", fontWeight:300, fontVariant: "300" },
+												typography: { ...typography, fontSize: { desktop: 19 }, fontFamily: "Open Sans", fontStyle: "normal", fontWeight: 300, fontVariant: "300" },
 												color: "#000",
 												textShadow: [],
 												authorTypo: { fontSize: { desktop: 15 } },
@@ -116,7 +115,8 @@ const Settings = ({ attributes, setAttributes }) => {
 							{tab.name === "style" && <>
 								<PanelBody className="bPlPanelBody" title={__("Wrapper", "blockquote")}>
 									<Background
-										label={__("BG Color", "blockquote")}
+										className="mb20"
+										label={__("BG Color", "blockquote")} 
 										value={background}
 										onChange={(val) => setAttributes({ background: val })}
 										defaultColor="#ffcc00"
@@ -126,18 +126,18 @@ const Settings = ({ attributes, setAttributes }) => {
 
 									<BoxControl
 										label={__("Padding", "tcb")}
-										className="mt20"
 										values={padding}
 										resetValues={{
-											"top": "0px",
-											"right": "0px",
-											"bottom": "0px",
-											"left": "0px"
+											top: "0px",
+											right: "0px",
+											bottom: "0px",
+											left: "0px"
 										}}
 										onChange={(value) => setAttributes({ padding: value })} />
 
 									<BorderControl
 										label={__("Border:", "blockquote")}
+										className="mt20"
 										value={border}
 										onChange={(val) => setAttributes({ border: val })}
 										defaults={{ radius: "5px" }}
@@ -145,9 +145,9 @@ const Settings = ({ attributes, setAttributes }) => {
 								</PanelBody>
 
 								<PanelBody className="bPlPanelBody" title={__("Content", "blockquote")} initialOpen={false}>
-									<BtnGroup
-										className="mt20"
-										label={__("Text Align", "blockquote")}
+									<BtnGroup 
+										label={__("Text Align", "blockquote")} 
+										className="mb20"
 										value={textAlign}
 										onChange={(val) => setAttributes({ textAlign: val })}
 										options={alignments}
@@ -167,7 +167,7 @@ const Settings = ({ attributes, setAttributes }) => {
 								</PanelBody>
 								<PanelBody className="bPlPanelBody" title={__("Message", "blockquote")} initialOpen={false}>
 									<Typography
-										label={__("Typography", "blockquote")}
+										label={__("Typography", "blockquote")} 
 										value={typography}
 										onChange={(val) => setAttributes({ typography: val })}
 										defaults={{ fontSize: 16 }}
@@ -176,6 +176,7 @@ const Settings = ({ attributes, setAttributes }) => {
 
 									<BColor
 										label={__("Color", "blockquote")}
+										className="mt20"
 										value={color}
 										onChange={(val) => setAttributes({ color: val })}
 										defaultColor="#000"
@@ -194,6 +195,7 @@ const Settings = ({ attributes, setAttributes }) => {
 								<PanelBody className="bPlPanelBody" title={__("Author", "blockquote")} initialOpen={false}>
 									<Typography
 										label={__("Typography", "blockquote")}
+										className="mt20"
 										value={authorTypo}
 										onChange={(val) => setAttributes({ authorTypo: val })}
 										defaults={{ fontSize: 16 }}
@@ -202,6 +204,7 @@ const Settings = ({ attributes, setAttributes }) => {
 
 									<BColor
 										label={__("Color", "blockquote")}
+										className="mt20"
 										value={authorColor}
 										onChange={(val) => setAttributes({ authorColor: val })}
 										defaultColor="#000"
@@ -211,6 +214,7 @@ const Settings = ({ attributes, setAttributes }) => {
 								<PanelBody className="bPlPanelBody" title={__("Quote", "blockquote")} initialOpen={false}>
 									<BColor
 										label={__("Color", "blockquote")}
+										className="mt20"
 										value={quoteColor}
 										onChange={(val) => setAttributes({ quoteColor: val })}
 										defaultColor="#000"
