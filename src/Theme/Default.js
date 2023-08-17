@@ -1,4 +1,4 @@
-const Default = ({ attributes, contentEl, authorEl }) => {
+const Default = ({ contentEl, authorEl }) => {
     return <div className="bBlocksBlockquote default">
         <span className="quote quoteOpen">❝</span>
         <div className='content'>

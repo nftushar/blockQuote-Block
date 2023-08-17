@@ -1,7 +1,7 @@
 === blockquote - blockquote Block ===
 Contributors: abuhayat, charlescormier
 Donate link: https://gum.co/wpdonate/
-Tags: block, key1, key2, key3, Gutenberg block
+Tags: block, blockquote, quote, block, Gutenberg block
 Requires at least: 5.0+
 Tested up to: 6.3
 Stable tag: 1.0.0

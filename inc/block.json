@@ -44,7 +44,7 @@
     "typography": {
       "type": "object",
       "default": {
-        "fontSize": 40,
+        "fontSize": { "desktop": 40 },
         "fontStyle": "italic"
       }
     },
@@ -76,7 +76,6 @@
         { "hOffset": "-1px", "vOffset": "1px", "blur": "0px", "color": "#555" }
       ]
     },
-
     "author": {
       "type": "string",
       "default": "NF Tushar"
@@ -84,7 +83,7 @@
     "authorTypo": {
       "type": "object",
       "default": {
-        "fontSize": 20
+        "fontSize": { "desktop": 20 }
       }
     },
     "authorColor": {

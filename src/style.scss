@@ -4,7 +4,6 @@ $primaryColor: #4527a4;
 	* {
 		box-sizing: border-box;
 	}
-
 	justify-content: center;
 	overflow: hidden;
 
@@ -15,9 +14,19 @@ $primaryColor: #4527a4;
 		margin: auto;
 		overflow: visible;
 
+		.content {
+			position: relative;
+			z-index: 20;
+		}
 		blockquote {
 			padding: 0;
 			margin: 0;
+
+			&::before,
+			&::after {
+				content: "";
+				display: none;
+			}
 		}
 		cite {
 			&:before {
@@ -29,19 +38,8 @@ $primaryColor: #4527a4;
 
 	.default {
 		position: relative;
-		padding: 0 20px;
-
-		.content {
-			padding: 40px 70px;
-		}
-		blockquote {
-			position: relative;
-			margin-bottom: 10px;
-			z-index: 20;
-		}
 		cite {
-			position: relative;
-			z-index: 20;
+			margin-top: 10px;
 		}
 		.quoteOpen {
 			position: absolute;
@@ -55,9 +53,8 @@ $primaryColor: #4527a4;
 		.quoteClose {
 			position: absolute;
 			bottom: -50px;
-			right: -20px;
+			right: -70px;
 			width: 150px;
-			text-align: right;
 			z-index: 10;
 			line-height: 200px;
 		}
@@ -65,16 +62,6 @@ $primaryColor: #4527a4;
 
 	.theme1 {
 		position: relative;
-
-		.content {
-			padding: 30px 0 30px 100px;
-
-			blockquote {
-				&::before {
-					content: "";
-				}
-			}
-		}
 
 		&::before {
 			font-family: Arial;
@@ -90,10 +77,30 @@ $primaryColor: #4527a4;
 
 		cite {
 			display: block;
-			color: #333333;
-			font-style: normal;
-			font-weight: bold;
-			margin-top: 1em;
+			margin-top: 15px;
+		}
+	}
+	.theme2 {
+		position: relative;
+
+		&:before {
+			content: "\201C";
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: #fff;
+			font-family: "PT Sans", sans-serif;
+			line-height: 80%;
+			// text-align: center;
+		}
+
+		.content {
+			cite {
+				content: "\2013 \2003" attr(cite);
+				display: block;
+				// text-align: right;
+			}
 		}
 	}
 }

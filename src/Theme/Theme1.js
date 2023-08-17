@@ -1,4 +1,4 @@
-const Theme1 = ({ attributes, contentEl, authorEl }) => {
+const Theme1 = ({ contentEl, authorEl }) => {
     return <div className="bBlocksBlockquote theme1">
         <div className="content">
             {contentEl}

@@ -7,11 +7,9 @@ const Style = ({ attributes, clientId }) => {
     const mainSl = `#bBlocksBlockquote-${clientId}`;
     const quoteSl = `${mainSl} .bBlocksBlockquote`;
 
-    return (
-        <style
-            dangerouslySetInnerHTML={{
-                __html: `
-                ${getTypoCSS(``, typography)?.googleFontLink}
+    return <style dangerouslySetInnerHTML={{
+        __html: `
+        ${getTypoCSS(``, typography)?.googleFontLink}
         ${getTypoCSS(``, authorTypo)?.googleFontLink}
         ${getTypoCSS(`${quoteSl} blockquote`, typography)?.styles}
         ${getTypoCSS(`${quoteSl} cite`, authorTypo)?.styles}
@@ -23,14 +21,18 @@ const Style = ({ attributes, clientId }) => {
         ${quoteSl}{
             ${getBorderCSS(border)}
         }
+        ${quoteSl} .quote,
+        ${mainSl} .theme1::before,
+        ${mainSl} .theme2::before{
+            color: ${quoteColor};
+            font-size: ${quoteSize} 
+        }
         ${quoteSl} .quote{
             ${getBackgroundCSS(background)}
-                color:${quoteColor};
-                font-size:${quoteSize}
         }
-        ${mainSl} .theme1::before{
-            color:${quoteColor};
-            font-size:${quoteSize}
+        ${mainSl} .theme2::before{
+            width: calc(${quoteSize} / 2);
+			height: calc(${quoteSize} / 3);
         }
         ${quoteSl} .content{
             text-align: ${textAlign};
@@ -38,14 +40,11 @@ const Style = ({ attributes, clientId }) => {
         }
         ${quoteSl} blockquote{
             text-shadow: ${getMultiShadowCSS(textShadow, "text")};
-            color:${color}
+            color: ${color};
         }
         ${quoteSl} cite{
-            color: ${authorColor}
+            color: ${authorColor};
         }
-    `,
-            }}
-        />
-    );
+    `}} />;
 };
 export default Style;
